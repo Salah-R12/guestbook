@@ -9,6 +9,7 @@ runtime:
         - sodium
         - ctype
         - iconv
+        - redis
         
 
 build:
@@ -20,7 +21,8 @@ web:
             root: "public"
             expires: 1h
             passthru: "/index.php"
-
+rediscache:
+    tye: redis:5.0
 disk: 512
 
 mounts:
