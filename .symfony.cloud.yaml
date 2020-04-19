@@ -11,7 +11,8 @@ runtime:
         - iconv
         - redis
         
-
+relationships:
+    redis: "rediscache:redis"
 build:
     flavor: none
 
