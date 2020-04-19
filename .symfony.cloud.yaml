@@ -11,7 +11,9 @@ runtime:
         - iconv
         - redis
         
-
+relationships:
+    database: "db:postgresql"
+    redis: "rediscahe:redis"
 build:
     flavor: none
 
