@@ -13,6 +13,9 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
 use Twig\Environment;
+use Twig\Error\LoaderError;
+use Twig\Error\RuntimeError;
+use Twig\Error\SyntaxError;
 
 class ConferenceController extends AbstractController
 {
@@ -25,6 +28,12 @@ class ConferenceController extends AbstractController
 
     /**
      * @Route("/", name="homepage")
+     * @param ConferenceRepository $conferenceRepository
+     * @param Environment $twig
+     * @return Response
+     * @throws LoaderError
+     * @throws RuntimeError
+     * @throws SyntaxError
      */
     public function index(ConferenceRepository $conferenceRepository,Environment $twig)
     {
@@ -32,8 +41,17 @@ class ConferenceController extends AbstractController
         return new Response($twig->render('conference/index.html.twig',
                                     ['conferences'=>$conferenceRepository->findAll(),]));
     }
+
     /**
-     * @Route("/conference/{id}", name="conference")
+     * @Route("/conference/{slug}", name="conference")
+     * @param Conference $conference
+     * @param CommentRepository $commentRepository
+     * @param Environment $twig
+     * @param Request $request
+     * @return Response
+     * @throws LoaderError
+     * @throws RuntimeError
+     * @throws SyntaxError
      */
     public function show(Conference $conference, CommentRepository $commentRepository, Environment $twig, Request $request)
     {
