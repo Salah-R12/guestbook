@@ -23,7 +23,7 @@ final class Version20200422134058 extends AbstractMigration
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'postgresql', 'Migration can only be executed safely on \'postgresql\'.');
 
         $this->addSql('ALTER TABLE conference ADD slug VARCHAR(255) ');
-        $this->addSql("UPDATE conference SET slug=CONCAT(LOWER(ville),'-','year')");
+        $this->addSql("UPDATE conference SET slug=CONCAT(LOWER(ville),'-', year)");
         $this->addSql('ALTER TABLE conference ALTER COLUMN slug SET NOT NULL');
     }
 

@@ -9,10 +9,10 @@ runtime:
         - sodium
         - ctype
         - iconv
-        - redis
+#        - redis
 
-relationships:
-    redis: "rediscache:redis"
+#relationships:
+#    redis: "rediscache:redis"
 
 build:
     flavor: none
