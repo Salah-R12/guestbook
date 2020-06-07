@@ -17,7 +17,7 @@ class SpamChecker
 
     /**
      * @return int Spam score: 0: not spam, 1: maybe spam, 2: blatant spam164
-     * @throws \RuntimeException if the call did not work
+     * @throws \RuntimeException if the call did not wosh.exe.stackdumprk
      */
     public function getSpamScore(Comment $comment, array $context): int
     { error_log("Spamchecker n'est pas encore appeler");
