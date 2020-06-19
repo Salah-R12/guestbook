@@ -21,7 +21,7 @@ function App() {
                 </nav>
 
                 <nav className="bg-light border-bottom text-center">
-                        <Link className="nav-conference" href='/conference/amsterdam2019'>
+                        <Link className="nav-conference" href='/conference/amsterdam-2019'>
                             Amsterdam 2019
                         </Link>
                 </nav>
